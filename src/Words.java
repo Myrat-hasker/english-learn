@@ -1,4 +1,4 @@
-public class Words{ // dobawleniye izmeneniye dliya git
+public class Words{ // dobawleniye izmeneniye 2.0 dliya git
     String[] engArr;
     String[] rusArr;
     int size;

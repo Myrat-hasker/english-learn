@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main
 {
-    public static void main(String[] args) {
+    public static void main(String[] args) {//dsdll;;l
 
         Words pet = new Words(10);
         pet.add("cat", "koshka");
