@@ -9,6 +9,9 @@ public class Words{
         engArr = new String[size];
         rusArr = new String[size];
     }
+    public void setSize(int s){
+        size = s;
+    }
     public void add(String engWord, String rusWord){ // dobavleniye v massiw
         engArr[engNElem] = engWord;
         rusArr[rusNElem] = rusWord;
@@ -24,8 +27,8 @@ public class Words{
         rusNElem++;
     }
     public void display(){      // obzor massiwa
-        for (int i = 0; i < engNElem; i++){
-            System.out.println(engArr[i] + " - " + rusArr[i] + ";");
+        for (int i = 0; i < engNElem - 1; i++){
+            System.out.println( engArr[i] + " - " +  rusArr[i] + ";");
         }
     }
     public void rusDisplay(){      // obzor rus massiwa

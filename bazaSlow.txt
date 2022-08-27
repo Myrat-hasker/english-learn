@@ -1,1 +1,1 @@
-cat кошка;dog  собака;
+able способный;features особенности;sequentially последовательно;accessed доступный;dimension измерение;one-dimensional одномерный;represent представлять;mentioned упомянутый;

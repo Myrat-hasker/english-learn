@@ -6,10 +6,17 @@ import java.io.File;
 public class Main
 {
     public static void main(String[] args) {
-        Words pet = new Words(10);
+        Words pet;
+        int arrSize = 0;
         try (FileReader baza = new FileReader("bazaSlow.txt")){
             int c;
             String cur = "";
+            while((c = baza.read()) != -1){
+                if((char)c == ';'){
+                    arrSize++;
+                }
+            }
+            pet = new Words(arrSize);
             while ((c = baza.read()) != -1){
                 if ((char)c != ' '   &&   (char)c != ';'){
                     cur = cur + (char) c;
@@ -21,33 +28,31 @@ public class Main
                     cur = "";
                 }
             }
-
-
+            System.out.println("Nachinayem igru:");
+            int correctAnswer = 0;
+            for (int i = 0; i < arrSize; i++){
+                Helper val = new Helper();
+                int rand = val.random(1, arrSize);
+                System.out.println(pet.getEngString(rand));
+                Scanner console = new Scanner(System.in);
+                String enterWord = console.nextLine();
+                if (enterWord.equals(pet.getRusString(rand))){
+                    System.out.println("pravilno!");
+                    correctAnswer++;
+                } else {
+                    System.out.println("neprawilno -" + pet.getRusString(rand) );
+                }
+            }
+            int result = correctAnswer * 100 / arrSize;
+            System.out.println("Result - " + result + "%");
         }
         catch (IOException ex){
             System.out.println(ex.getMessage());
         }
 
 
-        pet.display();
-       /* System.out.println("Nachinayem igru:");
-        int correctAnswer = 0;
-        for (int i = 0; i < 5; i++){
-            int random = (int)(Math.random() * 5);
-            System.out.println(pet.getEngString(random));
-            Scanner console = new Scanner(System.in);
-            String enterWord = console.nextLine();
-            if (enterWord.equals(pet.getRusString(random))){
-                System.out.println("pravilno!");
-                correctAnswer++;
-            } else {
-                System.out.println("neprawilno");
-            }
-        }
-        int result = correctAnswer * 100 / 5;
-        System.out.println("Result - " + result + "%");
+        //pet.display();
 
-        */
     }
 
 }
